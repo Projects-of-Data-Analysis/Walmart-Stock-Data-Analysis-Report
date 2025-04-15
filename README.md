@@ -7,11 +7,14 @@
 
   Kaggle link: [https://www.kaggle.com/datasets/abdmoiz/walmart-stock-data-2025](https://www.kaggle.com/datasets/abdmoiz/walmart-stock-data-2025)
 
-  GitHub Repository:
+  GitHub Repository: [https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report](https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report)
 
 # SQL Analysis:
 ### Commentary
 The SQL section leverages structured queries to extract meaningful insights from the Walmart stock dataset. The queries use SQLite-compatible syntax to aggregate data, calculate key metrics, and identify significant events. Techniques such as grouping, window functions, common table expressions (CTEs), and self-joins are employed to analyze temporal trends, volatility, and trading activity. Each query is designed to address a specific analytical goal, ranging from basic data exploration to advanced statistical analysis.
+
+
+SQL script file: [https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report/blob/main/script.sql ](https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report/blob/main/script.sql)
 
 ### Querry Details:
 #### 1. Preliminary Review and Analysis
@@ -66,6 +69,8 @@ Explanation: This query calculates the annual average and standard deviation of 
 ### Commentary
 
 The Python section, executed in a Jupyter Notebook, focuses on data manipulation, statistical analysis, and visualization using libraries like pandas, NumPy, and matplotlib. The queries (or code blocks) systematically process the dataset, check for quality, compute derived metrics (e.g., moving averages, returns), and generate visualizations to complement the SQL findings. This section excels in providing dynamic and visual insights into Walmart’s stock trends and performance.
+
+Jupyter Notebook File: [https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report/blob/main/walmart.ipynb](https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report/blob/main/walmart.ipynb)
 
 ### Query Details
 
@@ -122,8 +127,8 @@ Purpose: To visualize the adjusted closing price alongside its moving averages.
 Explanation: A plot combining <code>Adj_close</code>, 50-day, and 200-day moving averages (e.g., <code>sns.lineplot()</code> etc.) illustrates how dividends and splits affect prices and how moving averages track trends. This enhances understanding of long-term performance.
 
 #### 14. Calculate p-value and t-stats (A/B Analysis)
-Purpose: To perform statistical testing, likely comparing two groups (e.g., returns before/after an event).
-Explanation: Using <code>scipy.stats.ttest_ind()</code>, this code calculates the t-statistic and p-value to test for significant differences between two sets of returns (e.g., pre- and post-2008 financial crisis). A low p-value (<0.05) indicates a statistically significant difference, providing evidence of structural changes in stock behavior.
+Purpose: Compare stock performance (daily returns) before and after a significant event, e.g., pandemic (2020-02-29).
+Explanation: Using <code>scipy.stats.ttest_ind()</code>, this code calculates the t-statistic and p-value to test for significant differences between two sets of returns (e.g., pre- and post-pandemic). p-value (>0.05) indicates a there is not a significant difference, providing evidence of structural changes in stock behavior.
 
 # Conclusion
 The analysis of Walmart’s stock data from 2000 to 2025 reveals key insights into its market performance. SQL queries uncovered annual and monthly trends, volatility patterns, significant price movements, and volume spikes, highlighting periods of stability and turbulence. Python analysis complemented these findings with robust data processing, moving average calculations, and visualizations that illustrated long-term growth, daily volatility, and trading activity. Together, these approaches provide a holistic view of Walmart’s stock, demonstrating its resilience and responsiveness to market dynamics. This dual methodology serves as a powerful framework for financial data analysis, offering actionable insights for investors and analysts.
