@@ -3,20 +3,20 @@
 ![3aeb1a0e-fbfd-409f-a7c7-51d5d20775e1](https://github.com/user-attachments/assets/83f404c9-de72-402f-8f6b-99658d7fd6e2)
 
 # Introduction:
-  This report presents a comprehensive analysis of Walmart's stock data from January 2000 to March 2025, sourced from Kaggle. The dataset includes daily stock metrics such as opening, closing, high, and low prices, adjusted closing prices, and trading volume. The analysis is conducted using SQL for database querying and Python in a Jupyter Notebook for data processing and visualization. The objective is to uncover trends, volatility, significant price movements, and trading patterns to provide insights into Walmart's stock performance over the 25-years.
+  This report presents a comprehensive analysis of Walmart's stock data from January 2000 to March 2025, sourced from Kaggle. The dataset includes daily stock metrics such as opening, closing, high, and low prices, adjusted closing prices, and trading volume. The analysis is conducted using SQL for database querying and Python in a Jupyter Notebook for data processing and visualization. The objective is to uncover trends, volatility, significant price movements, and trading patterns to provide insights into Walmart's stock performance over the 25 years.
 
   Kaggle link: [https://www.kaggle.com/datasets/abdmoiz/walmart-stock-data-2025](https://www.kaggle.com/datasets/abdmoiz/walmart-stock-data-2025)
 
-  GitHub Repository: [https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report](https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report)
+  GitHub Repository: [https://github.com/Projects-of-Data-Analysis/Walmart-Stock-Data-Analysis-Report](https://github.com/Projects-of-Data-Analysis/Walmart-Stock-Data-Analysis-Report)
 
 # SQL Analysis:
 ### Commentary
 The SQL section leverages structured queries to extract meaningful insights from the Walmart stock dataset. The queries use SQLite-compatible syntax to aggregate data, calculate key metrics, and identify significant events. Techniques such as grouping, window functions, common table expressions (CTEs), and self-joins are employed to analyze temporal trends, volatility, and trading activity. Each query is designed to address a specific analytical goal, ranging from basic data exploration to advanced statistical analysis.
 
 
-SQL script file: [https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report/blob/main/script.sql ](https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report/blob/main/script.sql)
+SQL script file: [https://github.com/Projects-of-Data-Analysis/Walmart-Stock-Data-Analysis-Report/blob/main/script.sql](https://github.com/Projects-of-Data-Analysis/Walmart-Stock-Data-Analysis-Report/blob/main/script.sql)
 
-### Querry Details:
+### Query Details:
 #### 1. Preliminary Review and Analysis
 Purpose: To gain an initial understanding of the dataset's structure and content.
 Explanation: This query retrieves a sample of records to inspect columns (Date, Open, High, Low, Close, Adj_close, Volume) and their values. It helps verify data integrity, identify any anomalies (e.g., null values or outliers), and confirm the dataset's suitability for further analysis. For example, checking the range of dates ensures the dataset spans from January 2000 to March 2025, and examining numeric fields confirms they are in expected formats (e.g., positive prices and volumes).
@@ -28,7 +28,7 @@ Explanation: This query uses aggregate functions (<code>MIN, MAX, AVG</code>) on
 #### 3. Annual Performance Analysis
 Purpose: To calculate the minimum, maximum, and average closing prices and total volume per year.
 Technique: Uses <code>strftime('%Y', Date)</code> for grouping by year.
-Explanation: By grouping data by year, this query aggregates <code>MIN(Close), MAX(Close), AVG(Close)</code>, and <code>SUM(Volume)</code> to evaluate annual trends. It reveals how Walmart’s stock performed over time, highlighting years with significant growth, decline, or high trading activity. For instance, a year with a high maximum price and volume might indicate a bullish market or corporate milestone.
+Explanation: By grouping data by year, this query aggregates <code>MIN(Close), MAX(Close), AVG(Close)</code>, and <code>SUM(Volume)</code> to evaluate annual trends. It reveals how Walmart’s stock performed over time, highlighting years with significant growth, decline, or high trading activity. For instance, a year with a high maximum price and volume might indicate a bullish market or a corporate milestone.
 
 #### 4. Monthly Average Price Change
 Purpose: To calculate the average closing price per month.
@@ -43,7 +43,7 @@ Explanation: Similar to the previous query, this one extends the analysis by inc
 #### 6. Annual Price Volatility
 Purpose: To measure volatility as the difference between high and low prices per day, aggregated by year.
 Technique: Uses a CTE and window function to rank years by volatility.
-Explanation: Volatility is calculated as <code>High - Low</code> for each day, then averaged by year using a CTE. A window function (e.g., <code>RANK() OVER (ORDER BY AVG(High - Low) DESC)</code>) ranks years by volatility. This identifies periods of market instability, which could be linked to economic events, corporate announcements, or market-wide trends affecting Walmart.
+Explanation: Volatility is calculated as <code> High-Low </code> for each day, then averaged by year using a CTE. A window function (e.g., <code>RANK() OVER (ORDER BY AVG(High - Low) DESC)</code>) ranks years by volatility. This identifies periods of market instability, which could be linked to economic events, corporate announcements, or market-wide trends affecting Walmart.
 
 #### 7. Significant Price Drops (<5% in a Day)
 Purpose: To identify days with significant price drops for risk analysis.
@@ -70,7 +70,7 @@ Explanation: This query calculates the annual average and standard deviation of 
 
 The Python section, executed in a Jupyter Notebook, focuses on data manipulation, statistical analysis, and visualization using libraries like pandas, NumPy, and matplotlib. The queries (or code blocks) systematically process the dataset, check for quality, compute derived metrics (e.g., moving averages, returns), and generate visualizations to complement the SQL findings. This section excels in providing dynamic and visual insights into Walmart’s stock trends and performance.
 
-Jupyter Notebook File: [https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report/blob/main/walmart.ipynb](https://github.com/onurdoker/Walmart-Stock-Data-Analysis-Report/blob/main/walmart.ipynb)
+Jupyter Notebook File: [https://github.com/Projects-of-Data-Analysis/Walmart-Stock-Data-Analysis-Report/blob/main/walmart.ipynb](https://github.com/Projects-of-Data-Analysis/Walmart-Stock-Data-Analysis-Report/blob/main/walmart.ipynb)
 
 ### Query Details
 
@@ -124,7 +124,7 @@ Explanation: A histogram or kernel density plot (e.g., <code>sns.histplot(df['da
 
 #### 13. Adjusted Close with Moving Averages
 Purpose: To visualize the adjusted closing price alongside its moving averages.
-Explanation: A plot combining <code>Adj_close</code>, 50-day, and 200-day moving averages (e.g., <code>sns.lineplot()</code> etc.) illustrates how dividends and splits affect prices and how moving averages track trends. This enhances understanding of long-term performance.
+Explanation: A plot combining <code>Adj_close</code>, 50-day, and 200-day moving averages (e.g., <code>sns.lineplot()</code>, etc.) illustrates how dividends and splits affect prices and how moving averages track trends. This enhances understanding of long-term performance.
 
 #### 14. Calculate p-value and t-stats (A/B Analysis)
 Purpose: Compare stock performance (daily returns) before and after a significant event, e.g., pandemic (2020-02-29).
